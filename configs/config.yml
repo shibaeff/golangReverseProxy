@@ -1,0 +1,5 @@
+config:
+  - from: /host1
+    to: localhost:8081
+#  - from: /host2
+#    to: http://localhost:8082/stats

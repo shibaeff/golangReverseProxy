@@ -42,6 +42,6 @@ func (s *statsApi) GetStats(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
-func NewStatsApi() *statsApi {
+func NewStatsApi() StatsApi {
 	return &statsApi{}
 }
