@@ -22,7 +22,7 @@ FROM gcr.io/distroless/base-debian10
 
 WORKDIR /
 
-COPY ./configs configs/
+#COPY ./configs configs/
 
 COPY --from=build /proxy /proxy
 

@@ -2,13 +2,30 @@ version: "3.9"
 services:
   host1:
     image: "stats"
+    build:
+      dockerfile: ./stats.dockerfile
+      context: .
     network_mode: "host"
     command: "8081"
   host2:
+    build:
+      dockerfile: ./stats.dockerfile
+      context: .
     image: "stats"
     network_mode: "host"
     command: "8082"
   host3:
+    build:
+      dockerfile: ./stats.dockerfile
+      context: .
     image: "stats"
     network_mode: "host"
     command: "8083"
+  proxy:
+    build:
+      dockerfile: ./server.dockerfile
+      context: .
+    image: "proxy"
+    network_mode: "host"
+    volumes:
+      - ./configs:/configs
