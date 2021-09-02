@@ -11,9 +11,9 @@ COPY ./go.mod ./
 COPY ./go.sum ./
 RUN go mod download
 
-COPY ./cmd/client/*.go ./
+COPY ./cmd/proxy/*.go ./
 COPY ./internal internal/
-RUN go build -o /stats
+RUN go build -o /proxy
 
 ##
 ## Deploy
@@ -22,10 +22,12 @@ FROM gcr.io/distroless/base-debian10
 
 WORKDIR /
 
-COPY --from=build /stats /stats
+COPY ./configs configs/
 
-EXPOSE 8081
+COPY --from=build /proxy /proxy
+
+EXPOSE 9000
 
 USER nonroot:nonroot
 
-ENTRYPOINT ["/stats"]
+ENTRYPOINT ["/proxy"]

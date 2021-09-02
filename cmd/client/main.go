@@ -1,6 +1,8 @@
 package main
 
 import (
+	"flag"
+	"fmt"
 	"log"
 	"net/http"
 
@@ -8,8 +10,10 @@ import (
 )
 
 func main() {
+	var port = flag.Int("p", 8081, "port")
 	api := stats.NewStatsApi()
 	log.Println("Started stats logger")
 	http.HandleFunc("/stats", api.GetStats)
-	log.Fatal(http.ListenAndServe(":8081", nil))
+	err := http.ListenAndServe(fmt.Sprintf(":%d", *port), nil)
+	fmt.Print(err)
 }
