@@ -24,8 +24,6 @@ WORKDIR /
 
 COPY --from=build /stats /stats
 
-EXPOSE 8081
-
 USER nonroot:nonroot
 
 ENTRYPOINT ["/stats"]

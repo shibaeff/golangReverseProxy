@@ -44,7 +44,7 @@ func (r *reverseProxy) GenerateProxyHandler() func(ctx *fasthttp.RequestCtx) {
 			hostNotFoundError(ctx)
 			return
 		}
-		// ctx.Request.SetRequestURI()
+
 		if ind, ok := r.index[requestURI[0:slashPos-1]]; ok {
 			ctx.Request.SetRequestURI(requestURI[slashPos-1:])
 			r.proxies[ind].ServeHTTP(ctx)

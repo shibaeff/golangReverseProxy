@@ -1,0 +1,14 @@
+version: "3.9"
+services:
+  host1:
+    image: "stats"
+    network_mode: "host"
+    command: "8081"
+  host2:
+    image: "stats"
+    network_mode: "host"
+    command: "8082"
+  host3:
+    image: "stats"
+    network_mode: "host"
+    command: "8083"
