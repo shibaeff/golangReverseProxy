@@ -11,7 +11,6 @@ import (
 )
 
 func main() {
-	// var port = flag.Int("p", 8081, "port")
 	port, err := strconv.Atoi(os.Args[1])
 	if err != nil {
 		log.Fatalln(err)
